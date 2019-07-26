@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+            @include('includes.messages')
             <div class="card">
                 <div class="card-header">
                     Books Data Table
@@ -11,6 +12,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6">
+                          <a href="/books/create" class="btn btn-success">Add Book <i class="fas fa-plus"> </i></a>
                             {{-- <label for="">
                                 Show
                                 <select name="" id="showOptions" class="form-control input-sm">
@@ -32,6 +34,7 @@
                                     <option value="PublishingCompany">Publishing Company</option>
                                     <option value="PlaceofPublication">Place of Publication</option>
                                     <option value="ISBN">ISBN</option>
+                                    <option value="Status">Status</option>
                                 </select>
                             </label>
                             <label class="float-right">
@@ -50,6 +53,7 @@
                                     <th scope="col">Publishing Company</th>
                                     <th scope="col">Place of Publication</th>
                                     <th scope="col">ISBN</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">View</th>
                                   </tr>
                                 </thead>
@@ -64,7 +68,8 @@
                                     <td>{{$book->publishing_comp}}</td>
                                     <td>{{$book->place_of_publication}}</td>
                                     <td>{{$book->ISBN}}</td>
-                                    <td><a href="#" class="btn btn-success">View</a></td>
+                                    <td>{{$book->status}}</td>
+                                    <td><a href="#" class="btn btn-primary">View</a></td>
                                   </tr>
                                   
                                   @endforeach
@@ -149,11 +154,15 @@
   const displayData = (dataDisplay) => {
     tableBody.innerHTML = ''
     let markup;
-
+    
 
     dataDisplay.forEach(data => {
+      let tr = '<tr class="">'
+    if(data.Status !== 'in'){
+      tr = '<tr class="table-danger">'
+    }
     markup = `
-    <tr>
+    ${tr}
     <td>${data.Title}</td>
     <td>${data.Author}</td>
     <td>${data.Subject}</td>
@@ -161,9 +170,10 @@
     <td>${data.PublishingCompany}</td>
     <td>${data.PlaceofPublication}</td>
     <td>${data.ISBN}</td>
+    <td>${data.Status}</td>
     <td>${data.View}</td>
     </tr>`
-    tableBody.insertAdjacentHTML('afterbegin', markup)
+    tableBody.insertAdjacentHTML('beforeend', markup)
 
 
     } )

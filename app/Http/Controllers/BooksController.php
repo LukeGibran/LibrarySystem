@@ -14,7 +14,7 @@ class BooksController extends Controller
      */
     public function index()
     {   $books = Books::orderBy('created_at', 'desc')->get();
-        return view('pages.booksIndex')->with('books', $books);
+        return view('books.booksIndex')->with('books', $books);
     }
 
     /**
@@ -24,7 +24,7 @@ class BooksController extends Controller
      */
     public function create()
     {
-        //
+        return view('books.booksCreate');
     }
 
     /**
@@ -35,7 +35,35 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'author' => 'required',
+            'subject' => 'required',
+            'dateofpub' => 'required',
+            'publishingcomp' => 'required',
+            'placeofpub' => 'required',
+            'isbn' => 'required'
+        ]);
+
+
+        $books = new Books;
+        $books->title = $request->input('title');
+        $books->author = $request->input('author');
+        $books->subject = $request->input('subject');
+        $books->date_publish = $request->input('dateofpub');
+        $books->publishing_comp = $request->input('publishingcomp');
+        $books->place_of_publication = $request->input('placeofpub');
+        $books->ISBN = $request->input('isbn');
+        $books->status = 'in';
+        $books->cost = $request->input('cost');
+        $books->edition = $request->input('edition');
+        $books->added_entries = $request->input('addedentries');
+        $books->type_of_material = $request->input('typeofmat');
+        $books->includes = $request->input('includes');
+        $books->remarks = $request->input('remarks');
+
+        $books->save();
+        return redirect('/books')->with('success', 'Book Added!');
     }
 
     /**
@@ -46,7 +74,8 @@ class BooksController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = Book::find($id);
+        return view('books.bookShow')->with('book', $book);
     }
 
     /**
