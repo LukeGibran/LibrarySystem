@@ -46,23 +46,27 @@ class BooksController extends Controller
         ]);
 
 
-        $books = new Books;
-        $books->title = $request->input('title');
-        $books->author = $request->input('author');
-        $books->subject = $request->input('subject');
-        $books->date_publish = $request->input('dateofpub');
-        $books->publishing_comp = $request->input('publishingcomp');
-        $books->place_of_publication = $request->input('placeofpub');
-        $books->ISBN = $request->input('isbn');
-        $books->status = 'in';
-        $books->cost = $request->input('cost');
-        $books->edition = $request->input('edition');
-        $books->added_entries = $request->input('addedentries');
-        $books->type_of_material = $request->input('typeofmat');
-        $books->includes = $request->input('includes');
-        $books->remarks = $request->input('remarks');
+        
+        for($x=0;$x < $request->input('no_copy');$x++){
 
-        $books->save();
+            $books = new Books;
+            $books->title = $request->input('title');
+            $books->author = $request->input('author');
+            $books->subject = $request->input('subject');
+            $books->date_publish = $request->input('dateofpub');
+            $books->publishing_comp = $request->input('publishingcomp');
+            $books->place_of_publication = $request->input('placeofpub');
+            $books->ISBN = $request->input('isbn');
+            $books->status = 'in';
+            $books->cost = $request->input('cost');
+            $books->edition = $request->input('edition');
+            $books->added_entries = $request->input('addedentries');
+            $books->type_of_material = $request->input('typeofmat');
+            $books->includes = $request->input('includes');
+            $books->remarks = $request->input('remarks');
+            $books->no_of_copy = $request->input('no_copy');
+            $books->save();
+        }
         return redirect('/books')->with('success', 'Book Added!');
     }
 
@@ -74,7 +78,7 @@ class BooksController extends Controller
      */
     public function show($id)
     {
-        $book = Book::find($id);
+        $book = Books::find($id);
         return view('books.bookShow')->with('book', $book);
     }
 

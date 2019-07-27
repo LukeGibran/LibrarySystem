@@ -18,10 +18,10 @@ class CreateBooksTable extends Migration
             $table->string('title',255);
             $table->string('author',255);
             $table->string('subject',255);
-            $table->date('date_publish');
+            $table->integer('date_publish');
             $table->string('publishing_comp',255);
             $table->string('place_of_publication',255);
-            $table->bigInteger('ISBN');
+            $table->string('ISBN', 255);
             $table->string('status',255);
             $table->integer('cost')->nullable();
             $table->string('edition',255)->nullable();

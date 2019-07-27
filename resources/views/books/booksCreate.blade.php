@@ -23,8 +23,8 @@
                             {{Form::text('subject','',['class' => 'form-control', 'placeholder' => 'Subject', 'required'])}}
                     </div>
                     <div class="form-group">
-                            {{Form::label('dateofpub', 'Date Publish')}}
-                            {{Form::date('dateofpub','',['class' => 'form-control', 'placeholder' => 'date', 'required'])}}
+                            {{Form::label('dateofpub', 'Date Publish / Copyright')}}
+                            {{Form::number('dateofpub','',['class' => 'form-control', 'placeholder' => 'Date Publish / Copyright', 'required'])}}
                     </div>
                    
                 </div> 
@@ -39,7 +39,11 @@
                         </div>
                         <div class="form-group">
                                 {{Form::label('isbn', 'ISBN')}}
-                                {{Form::number('isbn','',['class' => 'form-control', 'placeholder' => 'ISBN', 'required'])}}
+                                {{Form::text('isbn','',['class' => 'form-control', 'placeholder' => 'ISBN', 'required'])}}
+                        </div>
+                        <div class="form-group">
+                                {{Form::label('no_copy', 'No of Copy / Volumes')}}
+                                {{Form::number('no_copy','',['class' => 'form-control', 'placeholder' => 'No of Copy / Volumes', 'required'])}}
                         </div>
                 </div>
             </div>
@@ -74,7 +78,8 @@
                                 {{Form::label('remarks', 'Remarks')}}
                                 {{Form::text('remarks','',['class' => 'form-control', 'placeholder' => 'Remarks'])}}
                         </div>
-
+                        
+                        <a href="/" class="btn btn-danger">Cancel</a>
                         {{Form::submit('Submit', ['class' => 'btn btn-success float-right'])}}
 
                 </div>

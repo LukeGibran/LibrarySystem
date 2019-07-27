@@ -11,19 +11,24 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-3">
                           <a href="/books/create" class="btn btn-success">Add Book <i class="fas fa-plus"> </i></a>
-                            {{-- <label for="">
+
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="" class="float-right">
                                 Show
                                 <select name="" id="showOptions" class="form-control input-sm">
-                                    <option value="1">10</option>
-                                    <option value="2">25</option>
-                                    <option value="5">50</option>
-                                    <option value="100">100</option>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
                                 </select>
-                            </label> --}}
+                            </label> 
                         </div>
                         <div class="col-sm-6">
+
+
                             <label for="">
                                 Search By
                                 <select name="" id="searchBy" class="form-control input-sm ">
@@ -69,7 +74,7 @@
                                     <td>{{$book->place_of_publication}}</td>
                                     <td>{{$book->ISBN}}</td>
                                     <td>{{$book->status}}</td>
-                                    <td><a href="#" class="btn btn-primary">View</a></td>
+                                  <td><a href="/books/{{$book->id}}" class="btn btn-primary">View</a></td>
                                   </tr>
                                   
                                   @endforeach
@@ -77,20 +82,12 @@
                               </table>
                               <div class="row">
                                   <div class="col-sm-6">
-                                    <div class="databaTable-info">1 to 10 of 89</div>
+                                    <div class="databaTable-info"></div>
                                   </div>
                                   <div class="col-sm-6">
                                         <nav aria-label="Page navigation example">
                                                 <ul class="pagination justify-content-end">
-                                                  <li class="page-item disabled">
-                                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                                  </li>
-                                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                  <li class="page-item">
-                                                    <a class="page-link" href="#">Next</a>
-                                                  </li>
+                                                  
                                                 </ul>
                                               </nav>
                                     </div>
@@ -102,97 +99,7 @@
         </div>
     </div>
 </div>
-<script>
-  const data = [];
-  const tableHeader = document.querySelectorAll('th');
-  const tableD = document.querySelectorAll('td');
-  const tableBody = document.querySelector('tbody');
+<script src="{{ asset('js/custom.js') }}" defer></script>
 
-  const searchInput = document.querySelector('#searchInput');
-  const searchBy = document.querySelector('#searchBy');
-
-  // Get the data and set the state
-  const getData = () => {
-      // Store the table headers
-    const headers = []
-  tableHeader.forEach(header => {
-      headers.push(header.innerHTML.replace(/\s+/g, ''));
-    })
-
-    // Store the table d
-    const table_d = [];
-
-    tableD.forEach(td => {
-      table_d.push(td.innerHTML); 
-    })
-
-    // Store as on State (on data array)
-      // Keep track of the row
-      let countRow = 0;
-    for(x=1;x <= (table_d.length / headers.length); x++){
-
-      // To determine on what column
-      let countColumn = 0;
-      // The obj to be push to the state
-      let objData = {}
-      // The column name
-      let columnName
-
-      for(y=countRow;y < tableHeader.length * x; y++){
-        columnName = headers[countColumn]
-
-        objData[columnName] = table_d[y]
-
-        countColumn++
-      }
-      data.push(objData)
-
-      countRow += tableHeader.length;
-    }
-  }
-
-  const displayData = (dataDisplay) => {
-    tableBody.innerHTML = ''
-    let markup;
-    
-
-    dataDisplay.forEach(data => {
-      let tr = '<tr class="">'
-    if(data.Status !== 'in'){
-      tr = '<tr class="table-danger">'
-    }
-    markup = `
-    ${tr}
-    <td>${data.Title}</td>
-    <td>${data.Author}</td>
-    <td>${data.Subject}</td>
-    <td>${data.DatePublish}</td>
-    <td>${data.PublishingCompany}</td>
-    <td>${data.PlaceofPublication}</td>
-    <td>${data.ISBN}</td>
-    <td>${data.Status}</td>
-    <td>${data.View}</td>
-    </tr>`
-    tableBody.insertAdjacentHTML('beforeend', markup)
-
-
-    } )
-  }
-
-  // Event Listener for Search
-  searchInput.addEventListener('input', e => {
-    const searchOptn = searchBy.value;
-    const searchResult = data.filter(data => {
-      return data[searchOptn].toLowerCase()
-      .includes(e.target.value.toLowerCase());
-    })
-
-    displayData(searchResult)
-  })
-  
-  getData();
-  displayData(data)
-  console.log(data)
-</script>
 @endsection
 
