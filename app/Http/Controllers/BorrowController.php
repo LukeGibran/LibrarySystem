@@ -15,7 +15,7 @@ class BorrowController extends Controller
      */
     public function index()
     {   
-        $books = Books::orderBy('id', 'desc')->get();
+        $books = Books::where('status', '=', 'in')->get();
         $borrowers = Borrower::orderBy('id', 'desc')->get();
         $data = array('books' => $books, 'borrowers' => $borrowers);
         return view('borrow.borrowIndex')->with($data);

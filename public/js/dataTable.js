@@ -132,7 +132,7 @@ const displayPages = (datainPages, page = 1) => {
     renderBtn(page, datainPages.length, perPage)
 
     // Determine the number of each page
-    tableInfo.innerText = `${paginatedData.length + ( (page  - 1) * perPage  )} of ${datainPages.length} Books`
+    tableInfo.innerText = `${paginatedData.length + ( (page  - 1) * perPage  )} out of ${datainPages.length} `
 
     
 }
