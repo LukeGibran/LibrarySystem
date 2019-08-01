@@ -99,7 +99,7 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('js/custom.js') }}" defer></script>
+<script src="{{ asset('js/dataTable.js') }}" defer></script>
 
 @endsection
 

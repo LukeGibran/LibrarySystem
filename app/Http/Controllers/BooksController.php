@@ -13,7 +13,7 @@ class BooksController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $books = Books::orderBy('created_at', 'desc')->get();
+    {   $books = Books::orderBy('id', 'desc')->get();
         return view('books.booksIndex')->with('books', $books);
     }
 

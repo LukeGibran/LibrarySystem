@@ -1,9 +1,16 @@
 // The real data/state
 const data = [];
 // This is use so that searched data is also paginated
-var searchedData = []; 
+let searchedData = [];
+
+// Store the table headers
+const headers = []
+
+// Store the table d
+const table_d = [];
+
 // This option is use to show how many to display per page
-var perPage = 5;
+let perPage = 5;
 const tableHeader = document.querySelectorAll('th');
 const tableD = document.querySelectorAll('td');
 const tableBody = document.querySelector('tbody');
@@ -16,19 +23,17 @@ const pagination = document.querySelector('.pagination');
 // To adjust the number display per page
 const tableInfo = document.querySelector('.databaTable-info');
 
-{/*  */}
 
 // Get the data and set the state
 const getData = () => {
-    // Store the table headers
-  const headers = []
-tableHeader.forEach(header => {
+
+// Store to the header data
+  tableHeader.forEach(header => {
     headers.push(header.innerHTML.replace(/\s+/g, ''));
   })
 
-  // Store the table d
-  const table_d = [];
 
+// Store to the table d
   tableD.forEach(td => {
     table_d.push(td.innerHTML); 
   })
@@ -61,29 +66,59 @@ tableHeader.forEach(header => {
 const displayData = (dataDisplay) => {
   tableBody.innerHTML = ''
   let markup;
-  
+  let tr;
+  let td = '';
+  let headerName;
 
-  dataDisplay.forEach(data => {
-    let tr = '<tr class="table-success">'
-  if(data.Status !== 'in'){
-    tr = '<tr class="table-danger">'
+  dataDisplay.sort();
+
+  for(x=0; x < dataDisplay.length; x++){
+    
+    // Check if the data is from the books table by having a status or not
+      if(dataDisplay[x].Status){
+        if(dataDisplay[x].Status !== 'in'){
+           tr = '<tr class="table-danger">'
+        }else{
+          tr = '<tr class="table-success">'
+        }
+         
+      }else {
+         tr = '<tr>'
+      }
+    
+    // Store the td's
+    for(y=0; y < headers.length; y++){
+      headerName = headers[y];
+      td += `<td>${dataDisplay[x][headerName]}</td>`
+    }
+
+    // Store all to the markup
+    markup = `${tr} ${td} </tr>`;
+    tableBody.insertAdjacentHTML('beforeend', markup)
+    td = ''
   }
-  markup = `
-  ${tr}
-  <td>${data.Title}</td>
-  <td>${data.Author}</td>
-  <td>${data.Subject}</td>
-  <td>${data.DatePublish}</td>
-  <td>${data.PublishingCompany}</td>
-  <td>${data.PlaceofPublication}</td>
-  <td>${data.ISBN}</td>
-  <td>${data.Status}</td>
-  <td>${data.View}</td>
-  </tr>`
-  tableBody.insertAdjacentHTML('beforeend', markup)
+
+  // dataDisplay.forEach(data => {
+  //   let tr = '<tr class="table-success">'
+  // if(data.Status !== 'in'){
+  //   tr = '<tr class="table-danger">'
+  // }
+  // markup = `
+  // ${tr}
+  // <td>${data.Title}</td>
+  // <td>${data.Author}</td>
+  // <td>${data.Subject}</td>
+  // <td>${data.DatePublish}</td>
+  // <td>${data.PublishingCompany}</td>
+  // <td>${data.PlaceofPublication}</td>
+  // <td>${data.ISBN}</td>
+  // <td>${data.Status}</td>
+  // <td>${data.View}</td>
+  // </tr>`
+  // tableBody.insertAdjacentHTML('beforeend', markup)
 
 
-  } )
+  // } )
 }
 
 // display the the data in pages
@@ -104,6 +139,7 @@ const displayPages = (datainPages, page = 1) => {
 
 // Render button
 const renderBtn = (page, numResults, perPage) =>{
+
     pagination.innerHTML = ''
     const pages = Math.ceil(numResults / perPage);
     var button;
@@ -143,6 +179,8 @@ const renderBtn = (page, numResults, perPage) =>{
         <li class="page-item disabled">
         <button class="page-link" >Next</button>
         </li>`;
+    } else{
+      button = ''
     }
 
     pagination.insertAdjacentHTML('afterbegin', button)
@@ -197,5 +235,5 @@ getData();
 displayPages(data)
 
 
-console.log(searchedData);
-console.log(data)
+// console.log(searchedData);
+// console.log(data)

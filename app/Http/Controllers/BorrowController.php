@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Books;
 use App\Borrower;
 
-class BorrowersController extends Controller
+class BorrowController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,10 @@ class BorrowersController extends Controller
      */
     public function index()
     {   
+        $books = Books::orderBy('id', 'desc')->get();
         $borrowers = Borrower::orderBy('id', 'desc')->get();
-        return view('borrower.borrowerIndex')->with('borrowers', $borrowers);
+        $data = array('books' => $books, 'borrowers' => $borrowers);
+        return view('borrow.borrowIndex')->with($data);
     }
 
     /**
@@ -25,7 +28,7 @@ class BorrowersController extends Controller
      */
     public function create()
     {
-        return view('borrower.borrowerCreate');
+        //
     }
 
     /**
@@ -36,12 +39,7 @@ class BorrowersController extends Controller
      */
     public function store(Request $request)
     {
-        $borrower = new Borrower;
-        $borrower->lname = $request->input('lname');
-        $borrower->fname = $request->input('fname');
-        $borrower->save();
-
-        return redirect('/borrower')->with('success', 'Borrower Added!');
+        //
     }
 
     /**
@@ -52,8 +50,7 @@ class BorrowersController extends Controller
      */
     public function show($id)
     {
-        $borrower = Borrower::find($id);
-        return view('borrower.borrowerShow')->with('borrower', $borrower);
+        //
     }
 
     /**

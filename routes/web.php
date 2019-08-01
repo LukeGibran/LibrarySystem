@@ -14,6 +14,9 @@
 Route::get('/', 'HomeController@index');
 
 Route::resource('books', 'BooksController');
+Route::resource('borrower', 'BorrowersController');
+Route::resource('borrow', 'BorrowController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
