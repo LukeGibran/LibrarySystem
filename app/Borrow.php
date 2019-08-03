@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Borrow extends Model
 {
     public function books() {
-        return $this->hasMany('App/Books');
+        return $this->belongsTo('App\Books');
     }
 
     public function borrower(){
-        return $this->hasMany('App/Borrower');
+        return $this->belongsTo('App\Borrower');
+
     }
 }

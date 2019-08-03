@@ -16,25 +16,21 @@
                                   <tr>
                                     <th scope="col">Book Title</th>
                                     <th scope="col">Date Returned</th>
-                                    <th scope="col"></th>
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr class="table-success">
-                                    <td>Book About Something</td>
-                                    <td>2019-08-01</td>
-                                    <td><a href="#" class="btn btn-link">View</a></td>
-                                  </tr>
-                                  <tr class="table-success">
-                                        <td>Book About Something</td>
-                                        <td>2019-08-01</td>
-                                        <td><a href="#" class="btn btn-link">View</a></td>
-                                  </tr>
-                                  <tr class="table-success">
-                                        <td>Book About Something</td>
-                                        <td>2019-08-01</td>
-                                        <td><a href="#" class="btn btn-link">View</a></td>
-                                  </tr>                                  
+                                    @foreach ($borrower->borrow as $record)
+                                      @if ($record->status == 'returned')
+                                      <tr class="table-success">
+
+                                      <td>{{$record->books->title}}</td>
+                                      <td>{{date('F-d-Y', strtotime($record->date_returned))}}</td>
+
+                                    </tr>                                
+
+                                      @endif
+                                    @endforeach
+
                                 </tbody>
                               </table>
                     </div>
@@ -46,25 +42,20 @@
                                       <tr>
                                         <th scope="col">Book Title</th>
                                         <th scope="col">Date Borrowed</th>
-                                        <th scope="col"></th>
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      <tr class="table-danger">
-                                        <td>Book About Something</td>
-                                        <td>2019-08-01</td>
-                                        <td><a href="#" class="btn btn-link">View</a></td>
-                                      </tr>
-                                      <tr class="table-danger">
-                                            <td>Book About Something</td>
-                                            <td>2019-08-01</td>
-                                            <td><a href="#" class="btn btn-link">View</a></td>
-                                      </tr>
-                                      <tr class="table-danger">
-                                            <td>Book About Something</td>
-                                            <td>2019-08-01</td>
-                                            <td><a href="#" class="btn btn-link">View</a></td>
-                                      </tr>                                  
+                                          @foreach ($borrower->borrow as $record)
+                                          @if ($record->status == 'borrowed')
+                                          <tr class="table-danger">
+
+                                          <td>{{$record->books->title}}</td>
+                                          <td>{{date('F-d-Y', strtotime($record->date_borrowed))}}</td>
+
+                                        </tr>                                  
+
+                                          @endif
+                                        @endforeach
                                     </tbody>
                                   </table>
                         </div>

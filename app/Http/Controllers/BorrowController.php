@@ -28,10 +28,10 @@ class BorrowController extends Controller
      */
     public function index()
     {   
-        $books = Books::where('status', '=', 'in')->get();
-        $borrowers = Borrower::orderBy('id', 'desc')->get();
-        $data = array('books' => $books, 'borrowers' => $borrowers);
-        return view('borrow.borrowIndex')->with($data);
+        $records = Borrow::orderBy('id', 'desc')->get();
+
+        return view('borrow.borrowIndex')->with('records', $records);
+        
     }
 
     /**
@@ -41,7 +41,10 @@ class BorrowController extends Controller
      */
     public function create()
     {
-        //
+        $books = Books::where('status', '=', 'in')->get();
+        $borrowers = Borrower::orderBy('id', 'desc')->get();
+        $data = array('books' => $books, 'borrowers' => $borrowers);
+        return view('borrow.borrowCreate')->with($data);
     }
 
     /**
@@ -91,7 +94,12 @@ class BorrowController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = Books::find($id);
+        $books = Books::where('status', '=', 'in')->get();
+        $borrowers = Borrower::orderBy('id', 'desc')->get();
+        $data = array( 'book' => $book, 'books' => $books, 'borrowers' => $borrowers);
+
+        return view('borrow.borrowShow')->with($data);
     }
 
     /**

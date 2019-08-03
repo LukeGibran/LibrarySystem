@@ -76,10 +76,10 @@ const displayData = (dataDisplay) => {
     
     // Check if the data is from the books table by having a status or not
       if(dataDisplay[x].Status){
-        if(dataDisplay[x].Status !== 'in'){
-           tr = '<tr class="table-danger">'
-        }else{
+        if(dataDisplay[x].Status === 'in' || dataDisplay[x].Status === 'returned'){
           tr = '<tr class="table-success">'
+        }else{
+          tr = '<tr class="table-danger">'
         }
          
       }else {

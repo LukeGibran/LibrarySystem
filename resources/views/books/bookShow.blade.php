@@ -96,6 +96,8 @@
                   {{Form::text('book_id',$book->id,['class' => 'form-control', 'hidden'])}}
                   {{Form::submit('Return',['class' => 'btn btn-info float-right text-white'])}}
                 {{Form::close()}}
+              @else
+             <a href="/borrow/{{$book->id}}" class="btn btn-secondary float-right">Borrow</a>
               @endif
               <a href="/books/" class="btn btn-link"><i class="fas fa-arrow-left"></i> Back</a>
 

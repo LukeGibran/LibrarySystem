@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-3">
+        <div class="col-md-4">
           <a href="/books/" class="nav-link text-success">
             <div class="card">
               <div class="card-body text-center">
@@ -16,7 +16,7 @@
           </a>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
             <a href="/books/create" class="nav-link text-primary">
               <div class="card">
                 <div class="card-body text-center">
@@ -29,8 +29,8 @@
             </a>
           </div>
 
-          <div class="col-md-3">
-              <a href="/borrow" class="nav-link text-dark">
+          <div class="col-md-4">
+              <a href="/borrow/create" class="nav-link " style="color: #654321 !important">
                 <div class="card">
                   <div class="card-body text-center">
                     <hr>
@@ -42,7 +42,19 @@
               </a>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
+              <a href="/borrow" class="nav-link text-dark">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <hr>
+                      <i class="fas fa-file-invoice fa-5x mb-3"></i>
+                    <h1 class="">Records</h1>
+                    <hr>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-4">
               <a href="/borrower/" class="nav-link text-dark">
                 <div class="card">
                   <div class="card-body text-center">

@@ -20,5 +20,6 @@ Route::resource('borrow', 'BorrowController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-// Custom Route Controller
+
+// Custom Routes
 Route::post('/borrow/returned', 'BorrowController@returned');
