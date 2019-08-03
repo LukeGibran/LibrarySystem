@@ -7,6 +7,18 @@ use App\Books;
 
 class BooksController extends Controller
 {
+
+    
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -79,6 +91,9 @@ class BooksController extends Controller
     public function show($id)
     {
         $book = Books::find($id);
+        if(!$book){
+            return redirect('/books')->with('error', 'Book not found!');
+        }
         return view('books.bookShow')->with('book', $book);
     }
 

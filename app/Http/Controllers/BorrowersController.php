@@ -7,6 +7,18 @@ use App\Borrower;
 
 class BorrowersController extends Controller
 {
+
+    
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -53,6 +65,9 @@ class BorrowersController extends Controller
     public function show($id)
     {
         $borrower = Borrower::find($id);
+        if(!$borrower){
+            return redirect('/books')->with('error', 'Borrower not found!');
+        }
         return view('borrower.borrowerShow')->with('borrower', $borrower);
     }
 

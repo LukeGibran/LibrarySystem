@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+      @include('includes.messages')
         <h1>{{$book->title}}</h1>
 
         <table class="table">
@@ -55,17 +56,25 @@
                     <th scope="col">Includes</th>
                     <th scope="col">Remarks</th>
                     <th scope="col">No of Copy</th>
+                    @if ($book->status == 'out')
+                        <th scope="col">Borrowed by</th>
+                    @endif
                   </tr>
                 </thead>
                 <tbody>
                     @if ($book->status == 'out')
                             <tr class="table-danger">
-                            <th>{{$book->cost ? $book->cost : 'n/a'}}</th>
+                            <td>{{$book->cost ? $book->cost : 'n/a'}}</td>
                             <td>{{$book->edition ? $book->edition : 'n/a'}}</td>
                             <td>{{$book->added_entries ? $book->added_entries : 'n/a'}}</td>
                             <td>{{$book->type_of_material ? $book->type_of_material : 'n/a'}}</td>
                             <td>{{$book->includes ? $book->includes : 'n/a'}}</td>
                             <td>{{$book->remarks ? $book->remarks : 'n/a'}}</td>
+                            <td>{{$book->no_of_copy}}</td>
+                            @if ($book->status == 'out')
+                            <th scope="col">{{$book->borrower->fname.' '.$book->borrower->lname}}</th>
+                            @endif
+                            </tr>
                             </tr>
                     @else
                             <tr class="table-success">
@@ -76,11 +85,19 @@
                             <td>{{$book->includes ? $book->includes : 'n/a'}}</td>
                             <td>{{$book->remarks ? $book->remarks : 'n/a'}}</td>
                             <td>{{$book->no_of_copy}}</td>
-                            </tr>
+  
                     @endif
     
                 </tbody>
               </table>
+             
+              @if ($book->status == 'out')
+                {{Form::open(['action' => 'BorrowController@returned', 'method' => 'POST'])}}
+                  {{Form::text('book_id',$book->id,['class' => 'form-control', 'hidden'])}}
+                  {{Form::submit('Return',['class' => 'btn btn-info float-right text-white'])}}
+                {{Form::close()}}
+              @endif
               <a href="/books/" class="btn btn-link"><i class="fas fa-arrow-left"></i> Back</a>
+
     </div>
 @endsection

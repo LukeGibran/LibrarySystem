@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddBorrowersIdToBooks extends Migration
+class AddTimestampsToBorrows extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddBorrowersIdToBooks extends Migration
      */
     public function up()
     {
-        Schema::table('books', function (Blueprint $table) {
-            $table->bigInteger('borrower_id')->nullable();
+        Schema::table('borrows', function (Blueprint $table) {
+            $table->timestamps();   
         });
     }
 
@@ -25,7 +25,7 @@ class AddBorrowersIdToBooks extends Migration
      */
     public function down()
     {
-        Schema::table('books', function (Blueprint $table) {
+        Schema::table('borrows', function (Blueprint $table) {
             //
         });
     }
