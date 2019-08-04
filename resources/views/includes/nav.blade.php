@@ -9,25 +9,25 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto justify-content-center">
+                <ul class="navbar-nav" style="margin-left:10rem">
                     @auth
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="/"><i class="fas fa-home"></i> Dashboard </a>
                     </li> --}}
-                    <li class="nav-item">
+                    <li class="nav-item ml-3">
                         <a class="nav-link" href="/books"><i class="fas fa-search"></i> Search</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ml-3">
                         <a class="nav-link" href="/books/create"><i class="fas fa-plus"></i> Add Books</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/books/create"><i class="fas fa-book"></i> Borrow</a>
+                    <li class="nav-item ml-3">
+                        <a class="nav-link" href="/borrow/create"><i class="fas fa-book"></i> Borrow</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/books/create"><i class="fas fa-file"></i> Records</a>
+                    <li class="nav-item ml-3">
+                        <a class="nav-link" href="/borrow"><i class="fas fa-file"></i> Records</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/books/create"><i class="fas fa-id-card"></i> Borrowers</a>
+                    <li class="nav-item ml-3">
+                        <a class="nav-link" href="/borrower"><i class="fas fa-id-card"></i> Borrowers</a>
                     </li>
                     @endauth
 
