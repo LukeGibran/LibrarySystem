@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+    <h1>All Books</h1>
+    <hr>
     <div class="row justify-content-center">
         <div class="col-md-12">
             @include('includes.messages')
@@ -11,11 +13,11 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <a href="/books/create" class="btn btn-success">Add Book <i class="fas fa-plus"> </i></a>
-
+                          <a href="/books/print" class="btn btn-blue-grey">Print <i class="fas fa-print "></i></a>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <label for="" class="float-right">
                                 Show
                                 <select name="" id="showOptions" class="form-control input-sm">
@@ -74,7 +76,7 @@
                                     <td>{{$book->place_of_publication}}</td>
                                     <td>{{$book->ISBN}}</td>
                                     <td>{{$book->status}}</td>
-                                  <td><a href="/books/{{$book->id}}" class="btn btn-primary">View</a></td>
+                                  <td><a href="/books/{{$book->id}}" class="btn btn-sm btn-primary">View</a></td>
                                   </tr>
                                   
                                   @endforeach

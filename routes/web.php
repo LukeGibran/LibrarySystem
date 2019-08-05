@@ -13,9 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::resource('books', 'BooksController');
-Route::resource('borrower', 'BorrowersController');
-Route::resource('borrow', 'BorrowController');
+
 
 Auth::routes();
 
@@ -23,3 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Custom Routes
 Route::post('/borrow/returned', 'BorrowController@returned');
+Route::get('/borrow/print', 'BorrowController@print');
+Route::get('/books/print', 'BooksController@print');
+
+
+Route::resource('books', 'BooksController');
+Route::resource('borrower', 'BorrowersController');
+Route::resource('borrow', 'BorrowController');

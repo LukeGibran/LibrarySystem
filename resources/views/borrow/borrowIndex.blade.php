@@ -13,11 +13,11 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-3">
-                          <a href="/books/create" class="btn btn-success">Borrow a book<i class="fas fa-plus"> </i></a>
-
+                        <div class="col-sm-4">
+                          <a href="/borrow/create" class="btn btn-success">Borrow a book<i class="fas fa-plus"> </i></a>
+                          <a href="/borrow/print" class="btn btn-blue-grey">Print <i class="fas fa-print "></i></a>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <label for="" class="float-right">
                                 Show
                                 <select name="" id="showOptions" class="form-control input-sm">

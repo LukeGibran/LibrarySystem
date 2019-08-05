@@ -43,11 +43,11 @@
             </div>
 
             <div class="col-md-4">
-              <a href="/borrow" class="nav-link text-dark">
+              <a href="/borrow" class="nav-link text-dark ">
                 <div class="card">
                   <div class="card-body text-center">
                     <hr>
-                      <i class="fas fa-file-invoice fa-5x mb-3"></i>
+                      <i class=" fas fa-file-invoice fa-5x mb-3"></i>
                     <h1 class="">Records</h1>
                     <hr>
                   </div>

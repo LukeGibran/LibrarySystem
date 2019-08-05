@@ -130,4 +130,9 @@ class BooksController extends Controller
     {
         //
     }
+
+    public function print(){
+        $books = Books::orderBy('id', 'desc')->get();
+        return view('books.booksPrint')->with('books', $books);
+    }
 }

@@ -153,4 +153,10 @@ class BorrowController extends Controller
 
         return redirect('/books/'.$book_id)->with('success', 'The book was successfully returned!');
     }
+
+    public function print(){
+        $records = Borrow::orderBy('id', 'desc')->get();
+
+        return view('borrow.borrowPrint')->with('records', $records);
+    }
 }
