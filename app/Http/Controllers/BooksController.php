@@ -105,7 +105,11 @@ class BooksController extends Controller
      */
     public function edit($id)
     {
-        //
+        $book = Books::find($id);
+        if(!$book){
+            return redirect('/books')->with('error', 'Book not found!');
+        }
+        return view('books.booksEdit')->with('book', $book);
     }
 
     /**
@@ -117,7 +121,68 @@ class BooksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'author' => 'required',
+            'subject' => 'required',
+            'dateofpub' => 'required',
+            'publishingcomp' => 'required',
+            'placeofpub' => 'required',
+            'isbn' => 'required'
+        ]);
+
+        $books = Books::find($id);
+
+        // Produce another copy of the book
+        if($request->input('no_copy') > $books->no_of_copy){
+            $iteration = ($request->input('no_copy') - $books->no_of_copy);
+            for($x=0;$x < $iteration;$x++){
+                    $book = new Books;
+                    $book->title = $request->input('title');
+                    $book->author = $request->input('author');
+                    $book->subject = $request->input('subject');
+                    $book->date_publish = $request->input('dateofpub');
+                    $book->publishing_comp = $request->input('publishingcomp');
+                    $book->place_of_publication = $request->input('placeofpub');
+                    $book->ISBN = $request->input('isbn');
+                    $book->status = $request->input('status');
+                    $book->cost = $request->input('cost');
+                    $book->edition = $request->input('edition');
+                    $book->added_entries = $request->input('addedentries');
+                    $book->type_of_material = $request->input('typeofmat');
+                    $book->includes = $request->input('includes');
+                    $book->remarks = $request->input('remarks');
+                    $book->no_of_copy = $request->input('no_copy');
+                    $book->save();     
+            }
+        }
+
+        // update all the same copy of books info
+        $copies = Books::where('isbn', '=', $books->ISBN)->get();
+                
+        foreach($copies as $book){
+            $book->title = $request->input('title');
+            $book->author = $request->input('author');
+            $book->subject = $request->input('subject');
+            $book->date_publish = $request->input('dateofpub');
+            $book->publishing_comp = $request->input('publishingcomp');
+            $book->place_of_publication = $request->input('placeofpub');
+            $book->ISBN = $request->input('isbn');
+            $book->status = $request->input('status');
+            $book->cost = $request->input('cost');
+            $book->edition = $request->input('edition');
+            $book->added_entries = $request->input('addedentries');
+            $book->type_of_material = $request->input('typeofmat');
+            $book->includes = $request->input('includes');
+            $book->remarks = $request->input('remarks');
+            $book->no_of_copy = $request->input('no_copy');
+            $book->save(); 
+        }
+
+        
+
+        return redirect('/books/'.$books->id)->with('update', 'Book Updated!');
+
     }
 
     /**
@@ -134,5 +199,9 @@ class BooksController extends Controller
     public function print(){
         $books = Books::orderBy('id', 'desc')->get();
         return view('books.booksPrint')->with('books', $books);
+    }
+
+    public function search($type){
+        return $type;
     }
 }

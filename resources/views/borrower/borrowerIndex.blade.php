@@ -68,7 +68,7 @@
                                             <td>{{$borrower->id}}</td>
                                             <td>{{$borrower->fname}}</td>
                                             <td>{{$borrower->lname}}</td>
-                                          <td><a href="/borrower/{{$borrower->id}}" class="btn btn-primary">Select Borrower</a></td>
+                                          <td><a href="/borrower/{{$borrower->id}}" class="btn btn-sm btn-primary">Select Borrower</a></td>
                                           </tr>
                                           
                                           @endforeach

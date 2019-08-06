@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/borrow/returned', 'BorrowController@returned');
 Route::get('/borrow/print', 'BorrowController@print');
 Route::get('/books/print', 'BooksController@print');
-
+Route::get('/books/search/{type}', 'BooksController@search');
 
 Route::resource('books', 'BooksController');
 Route::resource('borrower', 'BorrowersController');

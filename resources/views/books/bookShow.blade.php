@@ -3,8 +3,12 @@
 @section('content')
     <div class="container">
       @include('includes.messages')
+      <div class="row">
         <h1>{{$book->title}}</h1>
+        <a href="/books/{{$book->id}}/edit" class="nav-link text-dark"><i class="fas fa-edit"></i></a>
+      </div>
 
+        <hr>
         <table class="table">
             <thead>
               <tr>

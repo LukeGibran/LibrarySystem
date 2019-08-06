@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row ">
         <div class="col-md-4">
           <a href="/books/" class="nav-link text-success">
             <div class="card">
