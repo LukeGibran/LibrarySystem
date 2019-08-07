@@ -16,6 +16,7 @@
                                   <tr>
                                     <th scope="col">Book Title</th>
                                     <th scope="col">Date Returned</th>
+                                    <th scope="col"></th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -25,7 +26,7 @@
 
                                       <td>{{$record->books->title}}</td>
                                       <td>{{date('F-d-Y', strtotime($record->date_returned))}}</td>
-
+                                      <td><a href="/books/{{$record->books->id}}" class="btn btn-link" style="padding:0">View</a></td>
                                     </tr>                                
 
                                       @endif
@@ -42,6 +43,8 @@
                                       <tr>
                                         <th scope="col">Book Title</th>
                                         <th scope="col">Date Borrowed</th>
+                                        <th scope="col"></th>
+
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -51,7 +54,7 @@
 
                                           <td>{{$record->books->title}}</td>
                                           <td>{{date('F-d-Y', strtotime($record->date_borrowed))}}</td>
-
+                                          <td><a href="/books/{{$record->books->id}}" class="btn btn-link" style="padding:0">View</a></td>
                                         </tr>                                  
 
                                           @endif

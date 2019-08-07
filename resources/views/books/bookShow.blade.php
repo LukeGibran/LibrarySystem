@@ -103,7 +103,7 @@
               @else
              <a href="/borrow/{{$book->id}}" class="btn btn-secondary float-right">Borrow</a>
               @endif
-              <a href="/books/" class="btn btn-link"><i class="fas fa-arrow-left"></i> Back</a>
+              <a href="{{url()->previous()}}" class="btn btn-link"><i class="fas fa-arrow-left"></i> Back</a>
 
     </div>
 @endsection

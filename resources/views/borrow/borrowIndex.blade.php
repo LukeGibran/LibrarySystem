@@ -50,7 +50,7 @@
                         <table class="table table-bordered   table-hover">
                                 <thead class="thead-dark">
                                   <tr>
-                                    <th scope="col">Book Title</th>
+                                    <th scope="col">Title</th>
                                     <th scope="col">Borrowed by</th>
                                     <th scope="col">Date Borrowed</th>
                                     <th scope="col">Date Returned</th>
@@ -61,7 +61,7 @@
                                   @foreach ($records as $record)
                                       
                                   <tr>
-                                    <td>{{$record->books->title}}</td>
+                                  <td><a href="/books/{{$record->books->id}}"> {{$record->books->title}} </a></td>
                                     <td>{{$record->borrower->fname.' '.$record->borrower->lname}}</td>
                                     <td>{{date('F-d-Y', strtotime($record->date_borrowed))}}</td>
                                     <td>{{$record->date_returned ? date('F-d-Y', strtotime($record->date_returned)) : 'Not yet returned'}}</td>
@@ -77,10 +77,8 @@
                                   </div>
                                   <div class="col-sm-6">
                                         <nav aria-label="Page navigation example">
-                                                <ul class="pagination justify-content-end">
-                                                  
-                                                </ul>
-                                              </nav>
+                                          <ul class="pagination justify-content-end"></ul>
+                                        </nav>
                                     </div>
                               </div>
                 </div>

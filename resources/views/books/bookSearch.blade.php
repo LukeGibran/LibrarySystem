@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>All</h1>
+<h1>All {{$type.'s'}}</h1>
     <hr>
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -10,11 +10,33 @@
             <div class="card">
                 <div class="card-header">
                     Books Data Table
+                    <ul class="navbar-nav float-right" >
+                        <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Type of Material <span class="caret"></span>
+                                    </a>
+        
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/books/" >
+                                        All
+                                    </a>
+                                    <a class="dropdown-item" href="/books/search/book">
+                                            Books
+                                        </a>
+                                        <a class="dropdown-item" href="/books/search/magazine">
+                                            Magazines
+                                        </a>
+                                        <a class="dropdown-item" href="/books/search/article">
+                                            Articles
+                                        </a>
+                                    </div>
+                                </li>
+                        </ul>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-4">
-                          <a href="/books/create" class="btn btn-success">Add Book <i class="fas fa-plus"> </i></a>
+                          <a href="/books/create" class="btn btn-success">Add <i class="fas fa-plus"> </i></a>
                           <a href="/books/print" class="btn btn-blue-grey">Print <i class="fas fa-print "></i></a>
                         </div>
                         <div class="col-sm-2">

@@ -18,7 +18,7 @@ $factory->define(Books::class, function (Faker $faker) {
         'cost' => $faker->randomFloat,
         'edition' => $faker->randomDigit,
         'added_entries' => $faker->word,
-        'type_of_material' => $faker->word,
+        'type_of_material' => $faker->randomElement($array = array ('Book','Magazine','Article')),
         'includes' => $faker->word,
         'remarks' => $faker->sentence,
         'no_of_copy' => $faker->randomDigit

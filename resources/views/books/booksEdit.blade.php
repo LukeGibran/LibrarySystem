@@ -89,7 +89,6 @@
                         <div class="form-group">
                                 {{Form::label('remarks', 'Remarks')}}
                                 {{Form::text('remarks',$book->remarks,['class' => 'form-control', 'placeholder' => 'Remarks'])}}
-                                {{Form::text('status', $book->status, ['hidden'])}}
                         </div>
                         
                         <a href="/books/{{$book->id}}" class="btn btn-danger">Cancel</a>

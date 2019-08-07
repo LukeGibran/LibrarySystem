@@ -145,7 +145,7 @@ class BooksController extends Controller
                     $book->publishing_comp = $request->input('publishingcomp');
                     $book->place_of_publication = $request->input('placeofpub');
                     $book->ISBN = $request->input('isbn');
-                    $book->status = $request->input('status');
+                    $book->status = 'in';
                     $book->cost = $request->input('cost');
                     $book->edition = $request->input('edition');
                     $book->added_entries = $request->input('addedentries');
@@ -168,7 +168,6 @@ class BooksController extends Controller
             $book->publishing_comp = $request->input('publishingcomp');
             $book->place_of_publication = $request->input('placeofpub');
             $book->ISBN = $request->input('isbn');
-            $book->status = $request->input('status');
             $book->cost = $request->input('cost');
             $book->edition = $request->input('edition');
             $book->added_entries = $request->input('addedentries');
@@ -193,7 +192,11 @@ class BooksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $book = Books::find($id);
+
+        $book->delete();
+
+        return redirect('/books')->with('warning', 'The selected item has been deleted!');
     }
 
     public function print(){
@@ -202,6 +205,8 @@ class BooksController extends Controller
     }
 
     public function search($type){
-        return $type;
+        $books = Books::where('type_of_material', '=', $type)->get();
+        $data = array('type' => $type, 'books' => $books);
+        return view('books.bookSearch')->with($data);
     }
 }

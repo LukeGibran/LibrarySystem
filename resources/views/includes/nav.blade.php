@@ -21,7 +21,7 @@
                         <a class="nav-link" href="/books"><i class="fas fa-search"></i> Search</a>
                     </li>
                     <li class="nav-item ml-3">
-                        <a class="nav-link" href="/books/create"><i class="fas fa-plus"></i> Add Books</a>
+                        <a class="nav-link" href="/books/create"><i class="fas fa-plus"></i> Add</a>
                     </li>
                     <li class="nav-item ml-3">
                         <a class="nav-link" href="/borrow/create"><i class="fas fa-book"></i> Borrow</a>
@@ -40,10 +40,10 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
-                        @if (Route::has('register'))
+                        {{-- @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>

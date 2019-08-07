@@ -151,7 +151,7 @@ class BorrowController extends Controller
         $borrow->status = 'returned';
         $borrow->save();
 
-        return redirect('/books/'.$book_id)->with('success', 'The book was successfully returned!');
+        return redirect('/borrow')->with('success', 'The book was successfully returned!');
     }
 
     public function print(){

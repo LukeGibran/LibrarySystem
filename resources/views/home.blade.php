@@ -22,7 +22,7 @@
                 <div class="card-body text-center">
                   <hr>
                   <i class="fas fa-plus-circle fa-5x mb-3 "></i>
-                  <h1 class="">Add Books</h1>
+                  <h1 class="">Add</h1>
                   <hr>
                 </div>
               </div>
