@@ -2,23 +2,23 @@
 
 @section('content')
 <div class="container">
+        <a href="/" class="btn btn-link" style="padding-left:3px"><i class="fas fa-arrow-left"></i> Back</a>
+            <h1>All {{$type.'s'}}</h1>
+
+    <hr>
     <div class="row justify-content-center">
         <div class="col-md-12">
             @include('includes.messages')
-
-            <h1>All Records</h1>
             <div class="card">
                 <div class="card-header">
-                   Records Data Table
+                    Books Data Table
                 </div>
+
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-4">
-                          <a href="/borrow/create" class="btn btn-success">Borrow <i class="fas fa-book"> </i></a>
-                          <a href="/borrow/print" class="btn btn-blue-grey">Print <i class="fas fa-print "></i></a>
-                        </div>
-                        <div class="col-sm-2">
-                            <label for="" class="float-right">
+
+                        <div class="col-sm-1">
+                            <label for="">
                                 Show
                                 <select name="" id="showOptions" class="form-control input-sm">
                                     <option value="5">5</option>
@@ -30,14 +30,16 @@
                         </div>
                         <div class="col-sm-6">
 
-
                             <label for="">
                                 Search By
                                 <select name="" id="searchBy" class="form-control input-sm ">
-                                    <option value="BookTitle">Book Title</option>
-                                    <option value="Borrowedby">Borrowed by</option>
-                                    <option value="DateBorrowed">Date Borrowed</option>
-                                    <option value="DateReturned">Date Returned</option>
+                                    <option value="Title">Title</option>
+                                    <option value="Author">Author</option>
+                                    <option value="Subject">Subject</option>
+                                    <option value="DatePublish">Date Publish</option>
+                                    <option value="PublishingCompany">Publishing Company</option>
+                                    <option value="PlaceofPublication">Place of Publication</option>
+                                    <option value="ISBN">ISBN</option>
                                     <option value="Status">Status</option>
                                 </select>
                             </label>
@@ -51,21 +53,29 @@
                                 <thead class="thead-dark">
                                   <tr>
                                     <th scope="col">Title</th>
-                                    <th scope="col">Borrowed by</th>
-                                    <th scope="col">Date Borrowed</th>
-                                    <th scope="col">Date Returned</th>
+                                    <th scope="col">Author</th>
+                                    <th scope="col">Subject</th>
+                                    <th scope="col">Date Publish</th>
+                                    <th scope="col">Publishing Company</th>
+                                    <th scope="col">Place of Publication</th>
+                                    <th scope="col">ISBN</th>
                                     <th scope="col">Status</th>
+                                    <th scope="col">View</th>
                                   </tr>
                                 </thead>
                                 <tbody id="dataTable-body">
-                                  @foreach ($records as $record)
+                                  @foreach ($books as $book)
                                       
                                   <tr>
-                                  <td><a href="/books/{{$record->books->id}}"> {{$record->books->title}} </a></td>
-                                    <td>{{$record->borrower->fname.' '.$record->borrower->lname}}</td>
-                                    <td>{{date('F-d-Y', strtotime($record->date_borrowed))}}</td>
-                                    <td>{{$record->date_returned ? date('F-d-Y', strtotime($record->date_returned)) : 'Not yet returned'}}</td>
-                                    <td>{{$record->status}}</td>
+                                    <td>{{$book->title}}</td>
+                                    <td>{{$book->author}}</td>
+                                    <td>{{$book->subject}}</td>
+                                    <td>{{$book->date_publish}}</td>
+                                    <td>{{$book->publishing_comp}}</td>
+                                    <td>{{$book->place_of_publication}}</td>
+                                    <td>{{$book->ISBN}}</td>
+                                    <td>{{$book->status}}</td>
+                                  <td><a href="/view/{{$book->id}}" class="btn btn-sm btn-primary">View</a></td>
                                   </tr>
                                   
                                   @endforeach
@@ -77,14 +87,15 @@
                                   </div>
                                   <div class="col-sm-6">
                                         <nav aria-label="Page navigation example">
-                                          <ul class="pagination justify-content-end"></ul>
-                                        </nav>
+                                                <ul class="pagination justify-content-end">
+                                                  
+                                                </ul>
+                                              </nav>
                                     </div>
                               </div>
                 </div>
             </div>
 
-            
         </div>
     </div>
 </div>

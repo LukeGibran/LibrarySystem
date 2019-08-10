@@ -30,7 +30,7 @@
                                 @endforeach
                             </datalist>
 
-                        <a href="/" class="btn btn-danger">Cancel</a>
+                        <a href="/home" class="btn btn-danger">Cancel</a>
                         {{Form::submit('Submit', ['class' => 'btn btn-success float-right'])}}
                 </div>
             </div>

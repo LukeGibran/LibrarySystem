@@ -79,7 +79,7 @@ class BooksController extends Controller
             $books->no_of_copy = $request->input('no_copy');
             $books->save();
         }
-        return redirect('/books')->with('success', 'Book Added!');
+        return redirect('/books')->with('success', $request->input('typeofmat').'Added!');
     }
 
     /**

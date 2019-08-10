@@ -35,7 +35,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-4">
-                          <a href="/books/create" class="btn btn-success">Add Book <i class="fas fa-plus"> </i></a>
+                          <a href="/books/create" class="btn btn-success">Add <i class="fas fa-plus"> </i></a>
                           <a href="/books/print" class="btn btn-blue-grey">Print <i class="fas fa-print "></i></a>
                         </div>
                         <div class="col-sm-3">

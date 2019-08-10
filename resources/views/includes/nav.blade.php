@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/home') }}">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }} 
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -15,7 +15,7 @@
                         <a class="nav-link" href="/"><i class="fas fa-home"></i> Dashboard </a>
                     </li> --}}
                     <li class="nav-item ml-3">
-                        <a class="nav-link" href="/"><i class="fas fa-th"></i> Menu</a>
+                        <a class="nav-link" href="/home"><i class="fas fa-th"></i> Menu</a>
                     </li>
                     <li class="nav-item ml-3">
                         <a class="nav-link" href="/books"><i class="fas fa-search"></i> Search</a>

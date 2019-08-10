@@ -11,20 +11,23 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
 
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@home')->name('home');
 
 // Custom Routes
+Route::get('/', 'NonAdminController@index');
+Route::get('/home', 'AdminController@home')->name('home');
 Route::post('/borrow/returned', 'BorrowController@returned');
 Route::get('/borrow/print', 'BorrowController@print');
 Route::get('/books/print', 'BooksController@print');
 Route::get('/books/search/{type}', 'BooksController@search');
+Route::get('/search/{type}', 'NonAdminController@search');
+Route::get('/view/{id}', 'NonAdminController@view');
 
+// Resources Routes
 Route::resource('books', 'BooksController');
 Route::resource('borrower', 'BorrowersController');
 Route::resource('borrow', 'BorrowController');

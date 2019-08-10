@@ -65,7 +65,7 @@
                         </div>
                         <div class="form-group">
                                 {{Form::label('typeofmat', 'Type of Material')}}
-                                {{Form::text('typeofmat','',['class' => 'form-control', 'placeholder' => 'Type of Material', 'list' => 'datalist', 'autocomplete' => 'off'])}}
+                                {{Form::text('typeofmat','',['class' => 'form-control', 'placeholder' => 'Type of Material', 'list' => 'datalist', 'autocomplete' => 'off', 'required'])}}
                                 <datalist id="datalist">
                                         <option value="Book">
                                         <option value="Magazine">
@@ -84,7 +84,7 @@
                                 {{Form::text('remarks','',['class' => 'form-control', 'placeholder' => 'Remarks'])}}
                         </div>
                         
-                        <a href="/" class="btn btn-danger">Cancel</a>
+                        <a href="/home" class="btn btn-danger">Cancel</a>
                         {{Form::submit('Submit', ['class' => 'btn btn-success float-right'])}}
 
                 </div>

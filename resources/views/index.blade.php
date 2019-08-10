@@ -1,4 +1,53 @@
-<!doctype html>
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        @include('includes.messages')
+        <div class="row justify-content-center">
+            <img src="/storage/images/SDM.png" alt="" style="width: 160px;height: 80px;">
+        </div>
+        <div class="row justify-content-center mb-5">
+            <h1>SDM Library System</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <a href="/search/book" class="text-success">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-book fa-3x mb-3"></i>
+                            <h1>Books</h1>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                    <a href="/search/magazine" class="text-primary">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <i class="fas fa-newspaper fa-3x mb-3"></i>
+                                <h1>Magazines</h1>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                        <a href="/search/article" class="text-dark">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-file-alt fa-3x mb-3"></i>
+                                    <h1>Articles</h1>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+        </div>
+    </div>
+
+@endsection
+
+
+
+{{-- <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -62,8 +111,7 @@
                 margin-bottom: 30px;
             }
             img{
-                width: 250px;
-                height: 120px;
+
             }
         </style>
     </head>
@@ -72,7 +120,6 @@
 
 
             <div class="content">
-                <img src="/storage/images/SDM.png" alt="">
                 <div class="title m-b-md">
                     SDM Library System
                 </div>
@@ -93,4 +140,4 @@
             </div>
         </div>
     </body>
-</html>
+</html> --}}
