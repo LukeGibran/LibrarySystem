@@ -2,7 +2,10 @@
 
 @section('content')
 <div class="container">
-<h1>All {{$type.'s'}}</h1>
+<h1>All 
+    {{
+    $type == 'dictionary' ? 'Dictionaries' : str_replace('_', ' ',ucfirst($type)).'s'
+    }}</h1>
     <hr>
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -22,13 +25,31 @@
                                     </a>
                                     <a class="dropdown-item" href="/books/search/book">
                                             Books
-                                        </a>
-                                        <a class="dropdown-item" href="/books/search/magazine">
+                                    </a>
+                                    <a class="dropdown-item" href="/books/search/magazine">
                                             Magazines
-                                        </a>
-                                        <a class="dropdown-item" href="/books/search/article">
+                                    </a>
+                                    <a class="dropdown-item" href="/books/search/article">
                                             Articles
-                                        </a>
+                                    </a>
+                                    <a class="dropdown-item" href="/books/search/journal">
+                                        Journals
+                                    </a>
+                                    <a class="dropdown-item" href="/books/search/periodical">
+                                        Periodicals
+                                    </a>
+                                    <a class="dropdown-item" href="/books/search/encyclopedia">
+                                        Encyclopedia
+                                    </a>
+                                    <a class="dropdown-item" href="/books/search/dictionary">
+                                        Dictionary
+                                    </a>
+                                    <a class="dropdown-item" href="/books/search/almanac">
+                                        Almanacs
+                                    </a>
+                                    <a class="dropdown-item" href="/books/search/newspaper_clipping">
+                                        Newspaper Clippings
+                                    </a>
                                     </div>
                                 </li>
                         </ul>

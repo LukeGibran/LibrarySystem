@@ -3,7 +3,10 @@
 @section('content')
 <div class="container">
         <a href="/" class="btn btn-link" style="padding-left:3px"><i class="fas fa-arrow-left"></i> Back</a>
-            <h1>All {{$type.'s'}}</h1>
+            <h1>All 
+                {{
+                $type == 'dictionary' ? 'Dictionaries' : str_replace('_', ' ',ucfirst($type)).'s'
+                }}</h1>
 
     <hr>
     <div class="row justify-content-center">

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>All Books, Magazine & Articles</h1>
+    <h1>All Books, Magazine, Articles etc</h1>
     
     <hr>
     <div class="row justify-content-center">
@@ -26,6 +26,24 @@
                                             </a>
                                             <a class="dropdown-item" href="/books/search/article">
                                                 Articles
+                                            </a>
+                                            <a class="dropdown-item" href="/books/search/journal">
+                                                Journals
+                                            </a>
+                                            <a class="dropdown-item" href="/books/search/periodical">
+                                                Periodicals
+                                            </a>
+                                            <a class="dropdown-item" href="/books/search/encyclopedia">
+                                                Encyclopedia
+                                            </a>
+                                            <a class="dropdown-item" href="/books/search/dictionary">
+                                                Dictionary
+                                            </a>
+                                            <a class="dropdown-item" href="/books/search/almanac">
+                                                Almanacs
+                                            </a>
+                                            <a class="dropdown-item" href="/books/search/newspaper_clipping">
+                                                Newspaper Clippings
                                             </a>
                                         </div>
                                     </li>

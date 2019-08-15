@@ -70,6 +70,12 @@
                                         <option value="Book">
                                         <option value="Magazine">
                                         <option value="Article">
+                                        <option value="Journal">
+                                        <option value="Periodical">
+                                        <option value="Encyclopedia">
+                                        <option value="Dictionary">
+                                        <option value="Almanac">
+                                        <option value="Newspaper_Clipping">
                                 </datalist>
                         </div>
                    
