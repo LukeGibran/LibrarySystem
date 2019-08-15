@@ -23,7 +23,6 @@
                         <br>
 
                         <a href="/search/journal" class="text-dark"><h2 class="h3-responsive  border p-3"> <i class="fas fa-pager"></i> Journals</h2></a>
-                        <br>
 
                     </div>
                 </div>
@@ -38,7 +37,6 @@
                         <br>
 
                         <a href="/search/almanac" class="text-dark"><h2 class="h3-responsive  border p-3"> <i class="fas fa-book-reader"></i> Almanac</h2></a>
-                        <br>
 
 
                     </div>
