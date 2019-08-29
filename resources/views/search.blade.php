@@ -14,7 +14,12 @@
             @include('includes.messages')
             <div class="card">
                 <div class="card-header">
-                    Books Data Table
+                    <div class="float-left">
+                        <h6>Legends:</h6>
+                        In: <i class="fas fa-square-full text-success mr-3"></i>
+                        Out: <i class="fas fa-square-full text-danger mr-3"></i>
+        
+                      </div>
                 </div>
 
                 <div class="card-body">

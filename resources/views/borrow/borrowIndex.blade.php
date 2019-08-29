@@ -10,7 +10,7 @@
 
             <div class="card">
                 <div class="card-header">
-                   <div class="float-right">
+                   <div class="float-left">
                     <h6>Legends:</h6>
                     Returned: <i class="fas fa-square-full text-success mr-3"></i>
                     Borrowed: <i class="fas fa-square-full text-danger mr-3"></i>

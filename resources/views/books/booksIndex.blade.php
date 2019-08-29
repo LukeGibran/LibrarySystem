@@ -10,7 +10,12 @@
             @include('includes.messages')
             <div class="card">
                 <div class="card-header">
-                    Books Data Table
+                    <div class="float-left">
+                        <h6>Legends:</h6>
+                        In: <i class="fas fa-square-full text-success mr-3"></i>
+                        Out: <i class="fas fa-square-full text-danger mr-3"></i>
+        
+                      </div>
                     <ul class="navbar-nav float-right" >
                             <li class="nav-item dropdown">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
