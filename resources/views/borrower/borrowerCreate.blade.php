@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container pt-4">
         <h1>Add a borrower</h1>
         <hr>
         {{ Form::open(['action' => 'BorrowersController@store', 'method' => 'POST']) }}

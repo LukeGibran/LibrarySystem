@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container py-4">
     <h1>All Books, Magazine, Articles etc</h1>
     
     <hr>

@@ -5,8 +5,9 @@
  a:hover > h2{
     background: #90ee90;
  }
+
 </style>
-    <div class="container">
+    <div class="container pt-4">
         @include('includes.messages')
         <div class="row justify-content-center">
             <img src="/storage/images/SDM.png" alt="" style="width: 160px;height: 80px;">
@@ -48,7 +49,8 @@
                 </div>
                 <div class="col-md-4 col-sm-5">
                     <a href="/search/newspaper_clipping" class="text-dark"><h2 class="h3-responsive  border p-3"> <i class="fas fa-newspaper"></i> Newspaper Clippings</h2></a>
-                        <br>
+                    <br>
+                    <a href="/search/av" class="text-dark"><h2 class="h3-responsive  border p-3"> <i class="fas fa-photo-video"></i> Audio Visual</h2></a>
                 </div>
 
     </div>

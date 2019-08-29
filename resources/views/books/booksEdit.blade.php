@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container py-4">
         @include('includes.messages')
         <div class="row">
             <h1>Edit Book</h1>

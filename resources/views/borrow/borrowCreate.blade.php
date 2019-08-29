@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container pt-4">
         @include('includes.messages')
         {{Form::open(['action' => 'BorrowController@store', 'method' => 'POST'])}}
             <div class="row">
@@ -17,7 +17,10 @@
                             @endforeach
                         </datalist>
                     {{Form::label('date', 'Date Borrowed')}}
-                    {{Form::date('date','',['class' => 'form-control', 'placeholder' => 'Date Borrowed', 'list' => 'datalist1', 'required'])}}
+                    {{Form::date('date','',['class' => 'form-control mb-3', 'placeholder' => 'Date Borrowed', 'required'])}}
+                    
+                    {{Form::label('date_due', 'Date Due')}}
+                    {{Form::date('date_due','',['class' => 'form-control', 'placeholder' => 'Date Due', 'required'])}}
                 </div>
                 <div class="col-md-6">
                         <h2>Select the Borrower</h2>

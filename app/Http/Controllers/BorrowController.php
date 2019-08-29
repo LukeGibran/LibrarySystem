@@ -79,6 +79,7 @@ class BorrowController extends Controller
         $borrow->borrower_id = $borrower->id;
         $borrow->books_id = $book->id;
         $borrow->date_borrowed = $request->input('date');
+        $borrow->date_due = $request->input('date_due');
         $borrow->status = 'borrowed';
         $borrow->save();
 

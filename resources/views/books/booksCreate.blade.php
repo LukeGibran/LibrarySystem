@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container py-4">
         <h1>Add</h1>
         {{-- <a href="/" class="btn btn-link"> <i class="fas fa-arrow-left"></i> Back to home</a> --}}
 
@@ -76,6 +76,7 @@
                                         <option value="Dictionary">
                                         <option value="Almanac">
                                         <option value="Newspaper_Clipping">
+                                        <option value="AV">
                                 </datalist>
                         </div>
                    

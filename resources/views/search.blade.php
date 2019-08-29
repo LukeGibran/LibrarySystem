@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container pb-4">
         <a href="/" class="btn btn-link" style="padding-left:3px"><i class="fas fa-arrow-left"></i> Back</a>
             <h1>All 
                 {{
